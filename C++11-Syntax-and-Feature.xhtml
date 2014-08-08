@@ -20,7 +20,12 @@ body
 
 p
 {
+}
 
+#introduction,
+#content p
+{
+    text-indent: 1em ;
 }
 
 h1, h2, h3, h4, h5, h6
@@ -76,6 +81,10 @@ a:hover
     -webkit-border-radius: 0.4em  ;
 }
 
+.noindent
+{
+    text-indent: 0 ;
+}
 
 .maybe
 {
@@ -351,11 +360,12 @@ window.addEventListener("load", listener, false ) ;
     Free Documentation License".
 </pre>
 
-<p>
+<div id="introduction">
+<p class="noindent">
 筆者について
 </p>
 
-<p>
+<p class="noindent">
 名前：江添亮<br />
 Mail : boostcpp@gmail.com<br />
 Blog : <a href="http://cpplover.blogspot.jp/">http://cpplover.blogspot.jp/</a><br />
@@ -371,7 +381,7 @@ GitHub: <a href="https://github.com/EzoeRyou/cpp-book">https://github.com/EzoeRy
 Gumroadで購入: <a href="https://gumroad.com/l/IwMm">https://gumroad.com/l/IwMm</a>
 </p>
 
-<p>
+<p class="noindent">
 序
 </p>
 
@@ -419,12 +429,12 @@ Gumroadで購入: <a href="https://gumroad.com/l/IwMm">https://gumroad.com/l/IwM
 筆者は、プログラミングの参考書は、自由であるべきだと信じており、この参考書は、自由を保証するコピーレフトなライセンスで公開する。
 </p>
 
-<p>
+<p class="noindent">
 2013年10月26日<br />
 江添亮
 </p>
 
-<p>
+<p class="noindent">
 追記：
 </p>
 
@@ -432,12 +442,12 @@ Gumroadで購入: <a href="https://gumroad.com/l/IwMm">https://gumroad.com/l/IwM
 GitHubでの多くの誤字脱字の貢献にやる気を出し、遮二無二完成させた。本来ならば、もっと時間をかけたかった部分を短時間で書いたが、これを持って本書を一通り完成とする。
 </p>
 
-<p>
+<p class="noindent">
 2013年11月8日<br />
 江添亮
 </p>
 
-<p>
+<p class="noindent">
 追記二：
 </p>
 
@@ -445,10 +455,11 @@ GitHubでの多くの誤字脱字の貢献にやる気を出し、遮二無二�
 Gumroadで販売を開始した： <a href="https://gumroad.com/l/IwMm">https://gumroad.com/l/IwMm</a>
 </p>
 
-<p>
+<p class="noindent">
 2013年11月10日<br />
 江添亮
 </p>
+</div>
 
 <div id="index">
 
