@@ -44,6 +44,86 @@ div#content pre
     border-radius: 0.4em ;
 }
 
+#content article.toplevel > h1
+{
+    page-break-before: always ;
+    position:relative ;
+    margin: 0 -30px 0 0 ;
+    padding:0 20px 5px 20px ;
+    line-height: 1.5 ;
+    font-size: xx-large ;
+    color:#333 ;
+    background:#fff ;
+    text-shadow:
+        1px 1px 0 #fff,
+        2px 2px 0 #999;
+    border-top:#333 solid 3px ;
+    border-bottom:#333 solid 3px ;
+        background-image: -webkit-gradient(linear, left top, right bottom,
+        from(           rgba(255, 255, 255, 0.0)), 
+        color-stop(0.4, rgba(255, 255, 255, 0.0)), 
+        color-stop(0.4, rgba(0, 0, 0, 0.1)), 
+        color-stop(0.6, rgba(0, 0, 0, 0.1)), 
+        color-stop(0.6, rgba(255, 255, 255, 0.0)),
+        to(             rgba(255, 255, 255, 0.0))
+        );
+    background-image: -webkit-linear-gradient(top -45deg,
+         transparent 40%,
+             rgba(0, 0, 0, 0.1) 40%,
+             rgba(0, 0, 0, 0.1) 60%,
+             transparent 60%
+         );
+    background-image: -moz-linear-gradient(top -45deg,
+         transparent 40%,
+             rgba(0, 0, 0, 0.1) 40%,
+             rgba(0, 0, 0, 0.1) 60%,
+             transparent 60%
+         );
+    background-image: -o-linear-gradient(top -45deg,
+         transparent 40%,
+             rgba(0, 0, 0, 0.1) 40%,
+             rgba(0, 0, 0, 0.1) 60%,
+             transparent 60%
+         );
+    background-image: linear-gradient(to bottom -45deg,
+         transparent 40%,
+             rgba(0, 0, 0, 0.1) 40%,
+             rgba(0, 0, 0, 0.1) 60%,
+             transparent 60%
+         );
+    background-size:4px 4px ;
+}
+
+#content article.toplevel > article > h1
+{
+    position: relative ;
+    line-height: 1 ;
+    text-shadow:
+        1px 1px 0 #fff,
+        2px 2px 0 #999;
+    margin:1em -30px 10px 0 ;
+    padding: 0 5px 10px 20px ;
+    border-left: 10px solid #777 ;
+}
+#content article.toplevel > article > h1:after
+{
+    content: "" ;
+    position: absolute ;
+    bottom: 0px ;
+    left: 0 ;
+    height: 0 ;
+    width: 100% ;
+    border-bottom: 1px dashed #555 ;
+}
+
+#content article.toplevel > article > article > h1
+{
+    position: relative;
+    line-height: 1 ;
+    margin:1em -30px 10px 0 ;
+    padding: 0 5px 3.5px 20px ;
+    border-left: 10px double #777 ;
+}
 
 /*
 * i element represents represents syntactic categories.
