@@ -169,24 +169,8 @@ table, th, td
 ]]>
 </style>
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css" />
-<script type="application/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-<script type="application/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-<script type="application/javascript" >
-<![CDATA[
-$(function()
-{
-    $('article pre').each(function(){
-        $(this).wrapInner('<code class="cpp"></code>');
-    });
-
-    $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
-    });
-});
-]]>
-</script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/monokai_sublime.min.css" />
+<script type="application/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 
 <script type="application/javascript" >
 <![CDATA[
@@ -344,6 +328,26 @@ function generate_index()
     generate_nested_index( index, content, "#content > article" ) ;
 }
 
+function enable_syntax_highlighting()
+{
+    Array.prototype.slice.call(
+        document.querySelectorAll('article pre')
+    ).forEach(function(code_pre) {
+        var inner = code_pre.innerHTML ;
+        var wrapper = document.createElement('code') ;
+        wrapper.class = 'cpp' ;
+        wrapper.innerHTML = inner ;
+        code_pre.innerHTML = '' ;
+        code_pre.appendChild(wrapper) ;
+    }) ;
+
+    Array.prototype.slice.call(
+        document.querySelectorAll('pre code')
+    ).forEach(function(code) {
+        hljs.highlightBlock(code) ;
+    }) ;
+}
+
 // scroll to anchor element
 function scroll_to_anchor()
 {
@@ -357,6 +361,7 @@ function listener()
 {
     generate_index() ;
     add_chapter_numbers() ;
+    enable_syntax_highlighting() ;
     setup_heading_scroll_handler() ;
     scroll_to_anchor();
     window.removeEventListener( "load", listener, false ) ;
