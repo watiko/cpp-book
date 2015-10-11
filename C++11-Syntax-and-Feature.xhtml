@@ -336,10 +336,14 @@ function enable_syntax_highlighting()
     Array.prototype.slice.call(
         document.querySelectorAll('article pre')
     ).forEach( function( code_pre ) {
-        var inner = code_pre.firstChild ;
         var wrapper =  tmp.cloneNode( false ) ;
-        wrapper.appendChild( inner ) ;
-        code_pre.appendChild( wrapper ) ;
+        var childs = Array.prototype.slice.call( code_pre.childNodes ) ;
+        var firstchild = childs[0] ;
+
+        firstchild.parentNode.insertBefore( wrapper, firstchild ) ;
+        childs.forEach( function( child ) {
+            wrapper.appendChild( child ) ;
+        }) ;
     }) ;
 
     hljs.initHighlighting() ;
