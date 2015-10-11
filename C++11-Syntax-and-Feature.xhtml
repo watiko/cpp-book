@@ -350,22 +350,19 @@ function generate_index()
 
 function enable_syntax_highlighting()
 {
-    Array.prototype.slice.call(
-        document.querySelectorAll('article pre')
-    ).forEach(function(code_pre) {
-        var inner = code_pre.innerHTML ;
-        var wrapper = document.createElement('code') ;
-        wrapper.class = 'cpp' ;
-        wrapper.innerHTML = inner ;
-        code_pre.innerHTML = '' ;
-        code_pre.appendChild(wrapper) ;
-    }) ;
+    var tmp = document.createElement('code') ;
+    tmp.classList.add('cpp') ; // tmp.class is 10x slower for hljs
 
     Array.prototype.slice.call(
-        document.querySelectorAll('pre code')
-    ).forEach(function(code) {
-        hljs.highlightBlock(code) ;
+        document.querySelectorAll('article pre')
+    ).forEach( function( code_pre ) {
+        var inner = code_pre.firstChild ;
+        var wrapper =  tmp.cloneNode( false ) ;
+        wrapper.appendChild( inner ) ;
+        code_pre.appendChild( wrapper ) ;
     }) ;
+
+    hljs.initHighlighting() ;
 }
 
 // scroll to anchor element
